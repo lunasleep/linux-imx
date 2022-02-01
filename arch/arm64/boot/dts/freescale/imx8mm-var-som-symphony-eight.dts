@@ -167,10 +167,10 @@
         // Sensor board UART1: RX pin 23, TX pin 22
 	pinctrl_uart1: uart1grp {
 		fsl,pins = <
-			MX8MM_IOMUXC_UART1_RXD_UART1_DCE_RX		0x140
-			MX8MM_IOMUXC_UART1_TXD_UART1_DCE_TX		0x140
-//               	        MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX		0x140
-//                        MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX		0x140
+		//MX8MM_IOMUXC_UART1_RXD_UART1_DCE_RX		0x140
+		//MX8MM_IOMUXC_UART1_TXD_UART1_DCE_TX		0x140
+               	MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX		0x140
+                MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX		0x140
 		>;
 	};
         // Frozen UART3: RX pin 45, TX pin 55
@@ -192,7 +192,9 @@
 
 	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmc {
 		fsl,pins = <
-			MX8MM_IOMUXC_SAI2_RXC_GPIO4_IO22		0x41
+		//MX8MM_IOMUXC_SAI2_RXC_GPIO4_IO22		0x41
+                // unconnected pin, to free up uart1's use of the default one
+                        MX8MM_IOMUXC_SAI3_RXD_GPIO4_IO30		0x41
 		>;
 	};
 

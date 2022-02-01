@@ -169,7 +169,7 @@
 		fsl,pins = <
 		//MX8MM_IOMUXC_UART1_RXD_UART1_DCE_RX		0x140
 		//MX8MM_IOMUXC_UART1_TXD_UART1_DCE_TX		0x140
-               	MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX		0x140
+               	MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX		0x3
                 MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX		0x140
 		>;
 	};
@@ -178,7 +178,7 @@
 		fsl,pins = <
 //                        MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX		0x140
 //          		MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX		0x140
-                MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX             0x140
+                MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX             0x2
                 MX8MM_IOMUXC_ECSPI1_MOSI_UART3_DCE_TX           0x140
 		>;
 	};
@@ -194,7 +194,7 @@
 		fsl,pins = <
 		//MX8MM_IOMUXC_SAI2_RXC_GPIO4_IO22		0x41
                 // unconnected pin, to free up uart1's use of the default one
-                        MX8MM_IOMUXC_SAI3_RXD_GPIO4_IO30		0x41
+                        MX8MM_IOMUXC_UART1_RXD_GPIO5_IO22		0x41
 		>;
 	};
 

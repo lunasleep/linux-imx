@@ -13,21 +13,6 @@
 	chosen {
 		stdout-path = &uart4;
 	};
-
-
-        // needed?
-        reg_usdhc2_vmmc: regulator-usdhc2 {
-		compatible = "regulator-fixed";
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-		regulator-name = "VSD_3V3";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		gpio = <&gpio4 22 GPIO_ACTIVE_HIGH>;
-		off-on-delay = <20000>;
-		enable-active-high;
-	};
-
 };
 
 &i2c2 {
@@ -131,7 +116,6 @@
 	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
 	cd-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
 	bus-width = <4>;
-	vmmc-supply = <&reg_usdhc2_vmmc>;
 	status = "okay";
 };
 
@@ -164,37 +148,27 @@
 		>;
 	};
 
-        // Sensor board UART1: RX pin 23, TX pin 22
+    // Sensor UART1: RX pin 23, TX pin 22
 	pinctrl_uart1: uart1grp {
 		fsl,pins = <
-		//MX8MM_IOMUXC_UART1_RXD_UART1_DCE_RX		0x140
-		//MX8MM_IOMUXC_UART1_TXD_UART1_DCE_TX		0x140
-               	MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX		0x3
-                MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX		0x140
+            MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX		0x3
+            MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX		0x140
 		>;
 	};
-        // Frozen UART3: RX pin 45, TX pin 55
+
+    // Frozen UART3: RX pin 45, TX pin 55
 	pinctrl_uart3: uart3grp {
 		fsl,pins = <
-//                        MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX		0x140
-//          		MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX		0x140
-                MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX             0x2
-                MX8MM_IOMUXC_ECSPI1_MOSI_UART3_DCE_TX           0x140
+            MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX             0x2
+            MX8MM_IOMUXC_ECSPI1_MOSI_UART3_DCE_TX           0x140
 		>;
 	};
-        // Debug Console: Default pins (84, 85?)
+
+    // Debug Console: Default pins (84, 85?)
 	pinctrl_uart4: uart4grp {
 		fsl,pins = <
 		        MX8MM_IOMUXC_UART4_RXD_UART4_DCE_RX		0x140
 		        MX8MM_IOMUXC_UART4_TXD_UART4_DCE_TX		0x140
-		>;
-	};
-
-	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmc {
-		fsl,pins = <
-		//MX8MM_IOMUXC_SAI2_RXC_GPIO4_IO22		0x41
-                // unconnected pin, to free up uart1's use of the default one
-                        MX8MM_IOMUXC_UART1_RXD_GPIO5_IO22		0x41
 		>;
 	};
 

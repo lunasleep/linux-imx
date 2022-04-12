@@ -10,10 +10,72 @@
 / {
 	model = "Variscite VAR-SOM-MX8M-MINI on EightSleep New-Rat 0.8";
 
+        /* reg_audio: audio_vdd { */
+        /*         status = "disabled"; */
+        /* }; */
+        /* reg_eth_phy: regulator-eth-phy { */
+        /*         status = "disabled"; */
+        /* }; */
+        /* sound-wm8904 { */
+        /*         status = "disabled"; */
+        /* }; */
+        /* sound-spdif { */
+        /*         status = "disabled"; */
+        /* }; */
+        /* can0_osc: can0_osc { */
+        /*         status = "disabled"; */
+        /* }; */
+
+
 	chosen {
 		stdout-path = &uart4;
 	};
 };
+
+/* &fec1 { */
+/*         status = "disabled"; */
+/* }; */
+
+/* &sai5 { */
+/*         status = "disabled"; */
+/* }; */
+
+/* &spdif1 { */
+/*         status = "disabled"; */
+/* }; */
+
+/* &mipi_dsi { */
+/*         status = "disabled"; */
+/* }; */
+
+/* &ecspi1 { */
+/*         status = "disabled"; */
+/* }; */
+
+/* &mu { */
+/* 	status = "disabled"; */
+/* }; */
+
+/* &lcdif { */
+/* 	status = "disabled"; */
+/* }; */
+
+/* &gpu { */
+/* 	status = "disabled"; */
+/* }; */
+
+/* &vpu_g1 { */
+/* 	status = "disabled"; */
+/* }; */
+
+/* &vpu_g2 { */
+/* 	status = "disabled"; */
+/* }; */
+
+/* &vpu_h1 { */
+/* 	status = "disabled"; */
+/* }; */
+
 
 &i2c2 {
 
@@ -32,11 +94,11 @@
         //
         // - our rtc is only documented in trival-rtc.yaml; using the
         // same register as symphony's dallas rtc - no idea if that's right
-        rtc@68 {
-		compatible = "microcrystal,rv3028";
-		reg = <0x68>;
-		status = "okay";
-	};
+        /* rtc@68 { */
+	/* 	compatible = "microcrystal,rv3028"; */
+	/* 	reg = <0x68>; */
+	/* 	status = "okay"; */
+	/* }; */
 
 
         // todo? GPIO-expander: PCAL6416AHF,128
@@ -91,7 +153,15 @@
 	status = "okay";
 };
 
-// uart2 is for Bluetooth
+/* // uart2 is for Bluetooth */
+/* &uart2 { */
+/*         status = "disabled"; */
+/* }; */
+
+/* // wifi */
+/* &usdhc1 { */
+/*         status = "disabled"; */
+/* }; */
 
 /* Frozen */
 &uart3 {
@@ -124,8 +194,22 @@
 };
 
 &snvs_rtc {
-	status = "disabled";
+	/delete-property/ interrupts;
 };
+
+/* &i2c1 { */
+/* 	dsi_lvds_bridge: sn65dsi84@2c { */
+/*                 status = "disabled"; */
+/*         }; */
+/*         pmic@4b { */
+
+/* }; */
+
+/* &i2c3 { */
+/*         wm8904: audio-codec@1a { */
+/*                 status = "disabled"; */
+/*         }; */
+/* }; */
 
 
 &iomuxc {
